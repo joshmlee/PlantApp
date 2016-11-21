@@ -15,7 +15,8 @@
         android:text="Plant Facts"
         android:id="@+id/FactsButton"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:clickable="true" />
 
     <Button
         android:layout_width="600dp"
@@ -23,22 +24,48 @@
         android:text="Plant Doctor"
         android:id="@+id/DoctorButton"
         android:layout_above="@+id/FactsButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:clickable="true" />
 
     <ImageView
         android:layout_width="283dp"
         android:layout_height="284dp"
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewPlant"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Name"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Plant Name"
         android:id="@+id/textView"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/imageViewPlant"
         android:layout_centerHorizontal="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Water Plant in __ days"
+        android:id="@+id/checkBox"
+        android:layout_above="@+id/DoctorButton"
+        android:layout_centerHorizontal="true"
+        android:clickable="false" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageViewHome"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/imageViewPlant" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageViewEdit"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/imageViewPlant" />
 
 </RelativeLayout>
