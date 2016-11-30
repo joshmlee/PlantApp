@@ -7,6 +7,7 @@ package com.example.joshualee.plantapp;
 public class Plant {
     String name;
     String sciName;
+    String picture;
 
     public String getName() {
         return name;
@@ -23,5 +24,7 @@ public class Plant {
     public void setSciName(String sciName) {
         this.sciName = sciName;
     }
+
+    public String getPicture() { return picture; }
 
 }
