@@ -18,9 +18,11 @@
         <activity android:name=".PlantProfile" />
         <activity android:name=".plantfacts" />
         <activity android:name=".plantwellness" />
-        <activity android:name=".AddPlant"></activity>
+        <activity android:name=".AddPlant" />
+
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+        <activity android:name=".EditPlant"></activity>
     </application>
 
 </manifest>
