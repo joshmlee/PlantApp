@@ -38,8 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Plant Name"
-        android:id="@+id/textView"
+        android:id="@+id/PlantName"
         android:layout_below="@+id/imageViewPlant"
         android:layout_centerHorizontal="true" />
 
@@ -47,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Water Plant in __ days"
-        android:id="@+id/checkBox"
+        android:id="@+id/WaterPlant"
         android:layout_above="@+id/WellnessButton"
         android:layout_centerHorizontal="true"
         android:clickable="false" />
@@ -55,55 +54,49 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageViewHome"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/imageViewPlant" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/imageViewEdit"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/imageViewPlant" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
         android:src="@android:drawable/ic_menu_edit"
         android:layout_alignParentTop="true"
-        android:layout_alignEnd="@+id/imageViewEdit" />
+        android:layout_toEndOf="@id/imageViewPlant"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewHome"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:src="@drawable/homebutton"
         android:layout_toStartOf="@+id/imageViewPlant"
-        android:layout_alignBottom="@+id/imageView" />
+        android:layout_alignBottom="@+id/imageViewEdit" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text=""
         android:id="@+id/Homebutton"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_toStartOf="@+id/imageViewPlant"
-        android:layout_alignBottom="@+id/imageView2" />
+        android:layout_alignBottom="@+id/imageView2"
+        android:visibility="invisible" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text=""
         android:id="@+id/EditButton"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/imageViewPlant"
-        android:layout_alignBottom="@+id/imageView" />
+        android:layout_alignBottom="@+id/imageView"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/PlantSpecies"
+        android:layout_below="@+id/PlantName"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
