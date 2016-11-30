@@ -27,4 +27,6 @@ public class Plant {
 
     public String getPicture() { return picture; }
 
+    public void setPicture(String new_pic) {this.picture = new_pic; }
+
 }
