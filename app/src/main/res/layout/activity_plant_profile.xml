@@ -38,7 +38,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Plant Name"
         android:id="@+id/PlantName"
         android:layout_below="@+id/imageViewPlant"
         android:layout_centerHorizontal="true" />
@@ -55,19 +54,20 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewEdit"
         android:src="@android:drawable/ic_menu_edit"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@id/imageViewPlant"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
+        android:id="@+id/imageViewHome"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:src="@drawable/homebutton"
         android:layout_toStartOf="@+id/imageViewPlant"
-        android:layout_alignBottom="@+id/imageView" />
+        android:layout_alignBottom="@+id/imageViewEdit" />
 
     <Button
         android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
         android:layout_height="wrap_content"
         android:text=""
         android:id="@+id/PlantSpecies"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/PlantName"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
