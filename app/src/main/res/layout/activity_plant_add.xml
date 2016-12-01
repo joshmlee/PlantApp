@@ -21,6 +21,7 @@
         android:id="@+id/plantImage_input"
         android:layout_gravity="center_horizontal"
         android:onClick="loadImagefromGallery"
+        android:scaleType="centerCrop"
         />
 
     <EditText

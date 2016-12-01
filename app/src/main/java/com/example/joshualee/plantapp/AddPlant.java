@@ -1,10 +1,13 @@
 package com.example.joshualee.plantapp;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +26,7 @@ import java.io.IOException;
 
 public class AddPlant extends AppCompatActivity {
 
+    int   MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 2;
     String addPlant_Nickname;
     String addPlant_Species;
     String addPlant_addImage;
@@ -37,8 +41,27 @@ public class AddPlant extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_add);
+        if(Build.VERSION.SDK_INT== Build.VERSION_CODES.M) {
+//call the request permission here
+
+            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                // Should we show an explanation?
+                if (shouldShowRequestPermissionRationale(
+                        Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    // Explain to the user why we need to read the contacts
+                }
+
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+
+                // MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE is an
+                // app-defined int constant
 
 
+            }
+        }
 
     }
 
@@ -98,7 +121,7 @@ public class AddPlant extends AppCompatActivity {
                 //imgView.setImageBitmap(BitmapFactory
                 //        .decodeFile(imgDecodableString));
 
-                imgView.setImageBitmap(bmp);
+                imgView.setImageBitmap(resize(bmp, 250, 250));
                 Toast.makeText(this, "I got to print statement 5",
                         Toast.LENGTH_LONG).show();
                // new_plant.setPicture("WhateverThisWouldBe");
@@ -145,8 +168,29 @@ public class AddPlant extends AppCompatActivity {
 
         //new_plant.setPicture();
 
-//        Toast.makeText(this, new_plant.getName().toString(),
-//                Toast.LENGTH_LONG).show();
+        Toast.makeText(this, new_plant.getName().toString(),
+              Toast.LENGTH_LONG).show();
+    }
+
+    private static Bitmap resize(Bitmap image, int maxWidth, int maxHeight) {
+        if (maxHeight > 0 && maxWidth > 0) {
+            int width = image.getWidth();
+            int height = image.getHeight();
+            float ratioBitmap = (float) width / (float) height;
+            float ratioMax = (float) maxWidth / (float) maxHeight;
+
+            int finalWidth = maxWidth;
+            int finalHeight = maxHeight;
+            if (ratioMax > 1) {
+                finalWidth = (int) ((float)maxHeight * ratioBitmap);
+            } else {
+                finalHeight = (int) ((float)maxWidth / ratioBitmap);
+            }
+            image = Bitmap.createScaledBitmap(image, finalWidth, finalHeight, true);
+            return image;
+        } else {
+            return image;
+        }
     }
 
 }
