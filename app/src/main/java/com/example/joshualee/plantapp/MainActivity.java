@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +25,14 @@ public class MainActivity extends AppCompatActivity {
                                     int position, long id) {
                 Toast.makeText(MainActivity.this, "" + position,
                         Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ImageView imgFavorite = (ImageView) findViewById(R.id.plusImage);
+        imgFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "adding item", Toast.LENGTH_SHORT).show();
             }
         });
 

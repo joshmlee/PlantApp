@@ -44,7 +44,7 @@ public class ImageAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.grid_item, null);
             holder = new ViewHolder();
             // if it's not recycled, initialize some attributes
-            holder.mainImage = (ImageView) convertView.findViewById(R.id.imageView);  // new ImageView(mContext);
+            holder.mainImage = (ImageView) convertView.findViewById(R.id.plantImage);  // new ImageView(mContext);
 //            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
 //            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 //            imageView.setPadding(8, 8, 8, 8);
