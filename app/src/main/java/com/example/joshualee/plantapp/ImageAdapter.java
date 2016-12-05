@@ -12,6 +12,7 @@ import android.widget.Adapter;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class ImageAdapter extends BaseAdapter {
 
@@ -35,29 +36,39 @@ public class ImageAdapter extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
+
+        ViewHolder holder;
+
+//        ImageView imageView;
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.grid_item, null);
+            holder = new ViewHolder();
             // if it's not recycled, initialize some attributes
-            imageView = (ImageView) convertView.findViewById(R.id.imageView);  // new ImageView(mContext);
+            holder.mainImage = (ImageView) convertView.findViewById(R.id.plantImage);  // new ImageView(mContext);
 //            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
 //            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 //            imageView.setPadding(8, 8, 8, 8);
+            convertView.setTag(holder);
         } else {
-            imageView = (ImageView) convertView;
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        imageView.setImageResource(mThumbIds[position]);
-        return imageView;
+        holder.mainImage.setImageResource(mThumbIds[position]);
+        return convertView;
+//        return imageView;
     }
 
+    private static class ViewHolder{
+        ImageView mainImage;
+        TextView nameText;
+    }
     // references to our images
     private Integer[] mThumbIds = {
 
-            android.R.drawable.sym_def_app_icon, android.R.drawable.sym_def_app_icon,
-            android.R.drawable.sym_def_app_icon, android.R.drawable.sym_def_app_icon,
-            android.R.drawable.sym_def_app_icon, android.R.drawable.sym_def_app_icon,
-            android.R.drawable.sym_def_app_icon, android.R.drawable.sym_def_app_icon
+            R.drawable.bunnyearcactus, R.drawable.bunnyearcactus,
+            R.drawable.bunnyearcactus, R.drawable.bunnyearcactus,
+            R.drawable.bunnyearcactus, R.drawable.bunnyearcactus,
+            R.drawable.bunnyearcactus, R.drawable.bunnyearcactus
 //            R.drawable.sample_2, R.drawable.sample_3,
 //            R.drawable.sample_4, R.drawable.sample_5,
 //            R.drawable.sample_6, R.drawable.sample_7,
