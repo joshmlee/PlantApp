@@ -1,5 +1,7 @@
 package com.example.joshualee.plantapp;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by joshualee on 11/21/16.
  */
@@ -7,6 +9,7 @@ package com.example.joshualee.plantapp;
 public class Plant {
     String name;
     String sciName;
+    String picture;
 
     public String getName() {
         return name;
@@ -23,5 +26,9 @@ public class Plant {
     public void setSciName(String sciName) {
         this.sciName = sciName;
     }
+
+    public String getPicture() { return picture; }
+
+    public void setPicture(String new_pic) {this.picture = new_pic; }
 
 }
