@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, PlantProfile.class));
-                Toast.makeText(getApplicationContext(), "adding item", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "adding item2", Toast.LENGTH_SHORT).show();
             }
         });
 
