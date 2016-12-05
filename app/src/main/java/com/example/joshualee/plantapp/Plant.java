@@ -1,5 +1,7 @@
 package com.example.joshualee.plantapp;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by joshualee on 11/21/16.
  */

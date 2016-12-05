@@ -26,7 +26,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Intent myIntent = new Intent(this, AddPlant.class);
-        startActivity(myIntent);
     }
 }

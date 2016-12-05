@@ -68,7 +68,7 @@ public class EditPlant extends AppCompatActivity {
                 // Set the Image in ImageView after decoding the String
                 imgView.setImageBitmap(BitmapFactory
                         .decodeFile(imgDecodableString));
-                new_plant.setPicture("WhateverThisWouldBe");
+                //new_plant.setPicture("WhateverThisWouldBe");
 
             } else {
                 Toast.makeText(this, "You haven't picked Image",

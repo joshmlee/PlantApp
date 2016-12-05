@@ -1,6 +1,7 @@
 package com.example.joshualee.plantapp;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -12,6 +13,7 @@ import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -20,16 +22,20 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
 
 public class AddPlant extends AppCompatActivity {
 
+    Context myContext;
     int   MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 2;
     String addPlant_Nickname;
     String addPlant_Species;
     String addPlant_addImage;
+    SharedPreference sharedPreference = new SharedPreference();
+
 
     Plant new_plant = new Plant ();
 
@@ -115,6 +121,7 @@ public class AddPlant extends AppCompatActivity {
                 Bitmap bmp = null;
                 try {
                     bmp = getBitmapFromUri(selectedImage);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -122,6 +129,10 @@ public class AddPlant extends AppCompatActivity {
                 //        .decodeFile(imgDecodableString));
 
                 imgView.setImageBitmap(resize(bmp, 250, 250));
+
+                String myBase64Image = encodeToBase64(bmp, Bitmap.CompressFormat.JPEG, 100);
+
+                new_plant.setPicture(myBase64Image);
                 Toast.makeText(this, "I got to print statement 5",
                         Toast.LENGTH_LONG).show();
                // new_plant.setPicture("WhateverThisWouldBe");
@@ -137,6 +148,20 @@ public class AddPlant extends AppCompatActivity {
         }
 
     }
+
+    public static String encodeToBase64(Bitmap image, Bitmap.CompressFormat compressFormat, int quality)
+    {
+        ByteArrayOutputStream byteArrayOS = new ByteArrayOutputStream();
+        image.compress(compressFormat, quality, byteArrayOS);
+        return Base64.encodeToString(byteArrayOS.toByteArray(), Base64.DEFAULT);
+    }
+
+    public static Bitmap decodeBase64(String input)
+    {
+        byte[] decodedBytes = Base64.decode(input, 0);
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+    }
+
     private Bitmap getBitmapFromUri(Uri uri) throws IOException {
         ParcelFileDescriptor parcelFileDescriptor =
                 getContentResolver().openFileDescriptor(uri, "r");
@@ -148,6 +173,7 @@ public class AddPlant extends AppCompatActivity {
 
     public void SubmitAddText(View view){
 
+        myContext = view.getContext();
 
         //SharedPreferences  mPrefs = getPreferences(MODE_PRIVATE);
         //SharedPreferences.Editor prefsEditor = mPrefs.edit();
@@ -159,8 +185,9 @@ public class AddPlant extends AppCompatActivity {
         new_plant.setName(addPlant_Nickname);
         new_plant.setSciName(addPlant_Species);
 
-        Gson gson = new Gson();
-        String json = gson.toJson(new_plant);
+        sharedPreference.addFavorite(myContext, new_plant);
+//        Gson gson = new Gson();
+       // String json = gson.toJson(new_plant);
 
         //prefsEditior.putString("new_plant", json);
         //prefsEditior.commit();
