@@ -6,9 +6,22 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingTop="0dp"
     tools:context="com.example.joshualee.plantapp.PlantProfile">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eden"
+        android:id="@+id/textViewEden"
+        android:layout_alignBottom="@+id/Homebutton"
+        android:layout_alignEnd="@+id/EditButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:background="#37907e"
+        android:textSize="30dp" />
     <Button
         android:layout_width="600dp"
         android:layout_height="70dp"
@@ -31,8 +44,8 @@
         android:layout_width="283dp"
         android:layout_height="284dp"
         android:id="@+id/imageViewPlant"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/Homebutton" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -98,5 +111,7 @@
         android:id="@+id/PlantSpecies"
         android:layout_below="@+id/PlantName"
         android:layout_centerHorizontal="true" />
+
+
 
 </RelativeLayout>
