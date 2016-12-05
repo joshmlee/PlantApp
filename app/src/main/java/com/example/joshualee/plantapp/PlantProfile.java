@@ -21,8 +21,8 @@ public class PlantProfile extends AppCompatActivity {
         plantWellness.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PlantProfile.this, plantwellness.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(PlantProfile.this, plantwellness.class);
+                startActivity(intent1);
             }
         });
 
@@ -30,8 +30,8 @@ public class PlantProfile extends AppCompatActivity {
         plantFacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PlantProfile.this, plantfacts.class);
-                startActivity(intent);
+                Intent intent2 = new Intent(PlantProfile.this, plantfacts.class);
+                startActivity(intent2);
             }
         });
 
@@ -39,8 +39,8 @@ public class PlantProfile extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PlantProfile.this, MainActivity.class);
-                startActivity(intent);
+                Intent intent3 = new Intent(PlantProfile.this, MainActivity.class);
+                startActivity(intent3);
             }
         });
 
@@ -48,8 +48,8 @@ public class PlantProfile extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PlantProfile.this, MainActivity.class);
-                startActivity(intent);
+                Intent intent4 = new Intent(PlantProfile.this, MainActivity.class);
+                startActivity(intent4);
             }
         });
     }
