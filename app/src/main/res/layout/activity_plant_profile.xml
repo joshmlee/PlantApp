@@ -14,14 +14,15 @@
         android:layout_height="wrap_content"
         android:text="Eden"
         android:id="@+id/textViewEden"
+        android:background="#37907e"
         android:layout_alignBottom="@+id/Homebutton"
-        android:layout_alignEnd="@+id/EditButton"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:textAlignment="center"
+        android:layout_alignParentEnd="true"
         android:textColor="#ffffff"
-        android:background="#37907e"
-        android:textSize="30dp" />
+        android:textSize="35dp"
+        android:textAlignment="center" />
+    
     <Button
         android:layout_width="600dp"
         android:layout_height="70dp"
@@ -45,7 +46,7 @@
         android:layout_height="284dp"
         android:id="@+id/imageViewPlant"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/Homebutton" />
+        android:layout_below="@+id/imageViewHome" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -66,7 +67,7 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
         android:id="@+id/imageViewEdit"
         android:src="@android:drawable/ic_menu_edit"
         android:layout_alignParentTop="true"
