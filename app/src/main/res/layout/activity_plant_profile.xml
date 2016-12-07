@@ -22,7 +22,7 @@
         android:textColor="#ffffff"
         android:textSize="35dp"
         android:textAlignment="center" />
-    
+
     <Button
         android:layout_width="600dp"
         android:layout_height="70dp"
