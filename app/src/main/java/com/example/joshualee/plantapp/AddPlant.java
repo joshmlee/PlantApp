@@ -86,17 +86,17 @@ public class AddPlant extends AppCompatActivity {
             if (requestCode == RESULT_LOAD_IMG && resultCode == RESULT_OK
                     && null != data) {
                 // Get the Image from data
-                Toast.makeText(this, "I got to print statement 1",
-                        Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "I got to print statement 1",
+//                        Toast.LENGTH_LONG).show();
                 Uri selectedImage = data.getData();
                // imageFile = new File(getRealPathFromURI(selectedImage));
                 String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
-                Toast.makeText(this, "I got to print statement 2",
-                        Toast.LENGTH_LONG).show();
-                Toast.makeText(this, filePathColumn[0],
-                        Toast.LENGTH_LONG).show();
-
+//                Toast.makeText(this, "I got to print statement 2",
+//                        Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, filePathColumn[0],
+//                        Toast.LENGTH_LONG).show();
+//
 
 
                 // Get the cursor   ****THIS IS WHERE THE PROGRAM THROWS AN ERROR****
@@ -105,17 +105,17 @@ public class AddPlant extends AppCompatActivity {
                 //                  *****NEVER PASSES THIS POINT********
 
                 // Move to first row
-                Toast.makeText(this, "I got to print statement 2.5",
-                        Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "I got to print statement 2.5",
+//                        Toast.LENGTH_LONG).show();
                 cursor.moveToFirst();
-                Toast.makeText(this, "I got to print statement 3",
-                        Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "I got to print statement 3",
+//                        Toast.LENGTH_LONG).show();
                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                 String picturePath = cursor.getString(columnIndex);
                 cursor.close();
 
-                Toast.makeText(this, "I got to print statement 4",
-                        Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "I got to print statement 4",
+               //         Toast.LENGTH_LONG).show();
                 ImageButton imgView = (ImageButton) findViewById(R.id.plantImage_input);
                 // Set the Image in ImageView after decoding the String
                 Bitmap bmp = null;
@@ -133,8 +133,8 @@ public class AddPlant extends AppCompatActivity {
                 String myBase64Image = encodeToBase64(bmp, Bitmap.CompressFormat.JPEG, 100);
 
                 new_plant.setPicture(myBase64Image);
-                Toast.makeText(this, "I got to print statement 5",
-                        Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "I got to print statement 5",
+//                        Toast.LENGTH_LONG).show();
                // new_plant.setPicture("WhateverThisWouldBe");
 
             } else {
