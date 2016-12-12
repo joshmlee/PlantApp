@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
         imgFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PlantProfile.class));
-                Toast.makeText(getApplicationContext(), "adding item2", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, AddPlant.class));
+                //Toast.makeText(getApplicationContext(), "adding item2", Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -120,7 +121,7 @@ public class AddPlant extends AppCompatActivity {
                 // Set the Image in ImageView after decoding the String
                 Bitmap bmp = null;
                 try {
-                    bmp = getBitmapFromUri(selectedImage);
+                    bmp = resize(getBitmapFromUri(selectedImage), 250, 250);
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -128,13 +129,13 @@ public class AddPlant extends AppCompatActivity {
                 //imgView.setImageBitmap(BitmapFactory
                 //        .decodeFile(imgDecodableString));
 
-                imgView.setImageBitmap(resize(bmp, 250, 250));
+                imgView.setImageBitmap(bmp);
 
-                String myBase64Image = encodeToBase64(bmp, Bitmap.CompressFormat.JPEG, 100);
+                addPlant_addImage = encodeToBase64(bmp, Bitmap.CompressFormat.JPEG, 20);
 
-                new_plant.setPicture(myBase64Image);
-//                Toast.makeText(this, "I got to print statement 5",
-//                        Toast.LENGTH_LONG).show();
+                new_plant.setPicture(picturePath);
+//                Toast.makeText(this, picturePath,
+//                     Toast.LENGTH_LONG).show();
                // new_plant.setPicture("WhateverThisWouldBe");
 
             } else {
@@ -185,7 +186,11 @@ public class AddPlant extends AppCompatActivity {
         new_plant.setName(addPlant_Nickname);
         new_plant.setSciName(addPlant_Species);
 
-        sharedPreference.addFavorite(myContext, new_plant);
+       // SharedPreferences clearSHP = myContext.getSharedPreferences("PRODUCT_APP", 0);
+
+        //clearSHP.edit().clear().commit();
+
+        sharedPreference.addFavorite(this, new_plant);
 //        Gson gson = new Gson();
        // String json = gson.toJson(new_plant);
 
@@ -195,8 +200,10 @@ public class AddPlant extends AppCompatActivity {
 
         //new_plant.setPicture();
 
-        Toast.makeText(this, new_plant.getName().toString(),
-              Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, new_plant.getName().toString(),
+//              Toast.LENGTH_LONG).show();
+Intent intent1 = new Intent(AddPlant.this, MainActivity.class);
+       startActivity(intent1);
     }
 
     private static Bitmap resize(Bitmap image, int maxWidth, int maxHeight) {
