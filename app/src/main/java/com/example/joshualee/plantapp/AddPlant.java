@@ -131,7 +131,7 @@ public class AddPlant extends AppCompatActivity {
 
                 imgView.setImageBitmap(bmp);
 
-                addPlant_addImage = encodeToBase64(bmp, Bitmap.CompressFormat.JPEG, 20);
+                //addPlant_addImage = encodeToBase64(bmp, Bitmap.CompressFormat.JPEG, 20);
 
                 new_plant.setPicture(picturePath);
 //                Toast.makeText(this, picturePath,
