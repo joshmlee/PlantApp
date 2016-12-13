@@ -40,19 +40,13 @@
                 android:layout_above="@+id/textView2"
                 android:layout_alignParentTop="true"/>
 
-            <TextView
-                android:text="Eden"
-                android:textSize="30dp"
-                android:textAllCaps="true"
-                android:paddingTop="12dp"
-                android:layout_width="0dp"
-                android:layout_weight="6"
+            <ImageView
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:textColor="@color/background"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/textView2"
-                android:background="@color/header"
-                android:gravity="center_horizontal"/>
+                android:id="@+id/imageView3"
+                android:src="@drawable/Eden"
+                android:layout_weight="1.49"
+                android:layout_marginStart="100dp"/>
 
         </LinearLayout>
 

@@ -10,6 +10,7 @@
     android:background="@color/background"
     tools:context="com.example.joshualee.plantapp.PlantProfile">
 
+<<<<<<< HEAD
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -126,5 +127,132 @@
 
 
     </LinearLayout>
+=======
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/textViewEden"
+        android:background="#37907e"
+        android:layout_alignBottom="@+id/Homebutton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:textColor="#ffffff"
+        android:textSize="35dp"
+        android:textAlignment="center" />
+
+    <Button
+        android:layout_width="600dp"
+        android:layout_height="70dp"
+        android:text="Plant Facts"
+        android:id="@+id/FactsButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:background="#379080"
+        android:allowUndo="true" />
+
+    <Button
+        android:layout_width="600dp"
+        android:layout_height="70dp"
+        android:text="Plant Wellness"
+        android:id="@+id/WellnessButton"
+        android:layout_above="@+id/FactsButton"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:background="#379080" />
+
+    <!--android:background="@color/background"-->
+    <!--android:textColor="@color/text"/>-->
+
+
+    <ImageView
+        android:layout_width="283dp"
+        android:layout_height="284dp"
+        android:id="@+id/imageViewPlant"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageViewHome" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/PlantName"
+        android:layout_below="@+id/imageViewPlant"
+        android:textColor="@color/text"
+        android:layout_centerHorizontal="true"
+        android:singleLine="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Water Plant in __ days"
+        android:id="@+id/WaterPlant"
+        android:layout_above="@+id/WellnessButton"
+        android:layout_centerHorizontal="true"
+        android:clickable="false"
+        android:textColor="#0b0b0b" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:id="@+id/imageViewEdit"
+        android:src="@android:drawable/ic_menu_edit"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/imageViewPlant"
+        android:layout_alignEnd="@+id/EditButton"
+        android:layout_toEndOf="@+id/imageViewPlant" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageViewHome"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/homebutton"
+        android:layout_toStartOf="@+id/imageViewPlant"
+        android:layout_alignBottom="@+id/textViewEden" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/Homebutton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/imageViewPlant"
+        android:visibility="invisible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/EditButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/imageViewPlant"
+        android:visibility="invisible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/PlantSpecies"
+        android:layout_below="@+id/PlantName"
+        android:layout_centerHorizontal="true"
+        android:textColor="#090909" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/Eden"
+        android:layout_above="@+id/imageViewPlant"
+        android:layout_alignEnd="@+id/WaterPlant"
+        android:layout_alignStart="@+id/WaterPlant" />
+
+>>>>>>> 5020e7454ef5c21fe7a2e1a585d34882ec6a2518
 
 </RelativeLayout>
