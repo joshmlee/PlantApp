@@ -63,7 +63,8 @@
         android:id="@+id/PlantName"
         android:layout_below="@+id/imageViewPlant"
         android:textColor="@color/text"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:singleLine="true" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -72,7 +73,8 @@
         android:id="@+id/WaterPlant"
         android:layout_above="@+id/WellnessButton"
         android:layout_centerHorizontal="true"
-        android:clickable="false" />
+        android:clickable="false"
+        android:textColor="#0b0b0b" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -120,7 +122,8 @@
         android:text=""
         android:id="@+id/PlantSpecies"
         android:layout_below="@+id/PlantName"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#090909" />
 
     <ImageView
         android:layout_width="wrap_content"
