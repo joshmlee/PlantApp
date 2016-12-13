@@ -4,7 +4,11 @@ package com.example.joshualee.plantapp;
  * Created by joshualee on 11/21/16.
  */
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,25 +17,39 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ImageAdapter extends BaseAdapter {
 
     private Context mContext;
+    SharedPreference sharedPreference = new SharedPreference();
+    ArrayList<Plant> fav_plants = new ArrayList<Plant>();
 
     public ImageAdapter(Context c) {
         mContext = c;
+        //        Log.v("size object", toString(fav_plants.size()));
+        fav_plants = sharedPreference.getFavorites(mContext);
     }
 
+
+
+
+    @Override
     public int getCount() {
-        return mThumbIds.length;
+        return fav_plants.size();
     }
 
+    @Override
     public Object getItem(int position) {
-        return null;
+        return fav_plants.get(position);
     }
 
+    @Override
     public long getItemId(int position) {
         return 0;
     }
@@ -52,17 +70,28 @@ public class ImageAdapter extends BaseAdapter {
 //            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 //            imageView.setPadding(8, 8, 8, 8);
             convertView.setTag(holder);
+
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        SharedPreference sharedPreference = new SharedPreference();
-        ArrayList<Plant> fav_plants = new ArrayList<Plant>();
-        fav_plants = sharedPreference.getFavorites(mContext);
-        holder.mainImage.setImageResource(mThumbIds[position]);
-        holder.nameText.setText("Hola");
+//        File imgFile = new File(fav_plants.get(position).getPicture());
+//        Log.v("hi", imgFile.toString());
+        Bitmap plantBitmap = BitmapFactory.decodeFile(fav_plants.get(position).getPicture());
+//       try
+//       {
+//           holder.mainImage.setImageBitmap(resize(plantBitmap, 250, 250));
+//       }
+//       catch(Exception e)
+//       {
+//           holder.mainImage.setImageBitmap(plantBitmap);
+//       }
+        holder.mainImage.setImageBitmap(resize(plantBitmap, 250, 250));
+
+        holder.nameText.setText(fav_plants.get(position).getName());
+
         return convertView;
-//        return imageView;
+        //        return imageView;
     }
 
     private static class ViewHolder{
@@ -84,5 +113,27 @@ public class ImageAdapter extends BaseAdapter {
 //            R.drawable.sample_4, R.drawable.sample_5,
 //            R.drawable.sample_6, R.drawable.sample_7
     };
+
+
+    private static Bitmap resize(Bitmap image, int maxWidth, int maxHeight) {
+        if (maxHeight > 0 && maxWidth > 0) {
+            int width = image.getWidth();
+            int height = image.getHeight();
+            float ratioBitmap = (float) width / (float) height;
+            float ratioMax = (float) maxWidth / (float) maxHeight;
+
+            int finalWidth = maxWidth;
+            int finalHeight = maxHeight;
+            if (ratioMax > 1) {
+                finalWidth = (int) ((float)maxHeight * ratioBitmap);
+            } else {
+                finalHeight = (int) ((float)maxWidth / ratioBitmap);
+            }
+            image = Bitmap.createScaledBitmap(image, finalWidth, finalHeight, true);
+            return image;
+        } else {
+            return image;
+        }
+    }
 
 }
