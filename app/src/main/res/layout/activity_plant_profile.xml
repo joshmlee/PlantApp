@@ -71,7 +71,9 @@
         android:id="@+id/imageViewEdit"
         android:src="@android:drawable/ic_menu_edit"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@id/imageViewPlant"/>
+        android:layout_above="@+id/imageViewPlant"
+        android:layout_alignEnd="@+id/EditButton"
+        android:layout_toEndOf="@+id/imageViewPlant" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -81,7 +83,7 @@
         android:layout_alignParentStart="true"
         android:src="@drawable/homebutton"
         android:layout_toStartOf="@+id/imageViewPlant"
-        android:layout_alignBottom="@+id/imageViewEdit" />
+        android:layout_alignBottom="@+id/textViewEden" />
 
     <Button
         android:layout_width="wrap_content"

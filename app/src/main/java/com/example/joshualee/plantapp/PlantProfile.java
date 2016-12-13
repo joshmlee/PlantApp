@@ -48,7 +48,7 @@ public class PlantProfile extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent4 = new Intent(PlantProfile.this, MainActivity.class);
+                Intent intent4 = new Intent(PlantProfile.this, EditPlant.class);
                 startActivity(intent4);
             }
         });
