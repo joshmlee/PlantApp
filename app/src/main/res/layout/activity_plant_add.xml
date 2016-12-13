@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    >
+    android:background="@color/background">
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -32,6 +33,8 @@
         android:hint="nickname"
         android:ems="10"
         android:id="@+id/plantName_input"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text"
         android:singleLine="true" />
 
     <EditText
@@ -40,6 +43,8 @@
         android:paddingTop="10dp"
         android:hint="species"
         android:id="@+id/plantSpecies_input"
+        android:textColor="@color/text"
+        android:textColorHint="@color/text"
         android:singleLine="true" />
 
 

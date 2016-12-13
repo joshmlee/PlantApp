@@ -73,8 +73,12 @@ public class MainActivity extends AppCompatActivity {
             gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View v,
                                         int position, long id) {
-                    Toast.makeText(MainActivity.this, "" + position,
-                            Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(MainActivity.this, PlantProfile.class);
+                    i.putExtra("position", position);
+                    startActivity(i);
+
+//                    Toast.makeText(MainActivity.this, "" + position,
+//                            Toast.LENGTH_SHORT).show();
                 }
             });
 
