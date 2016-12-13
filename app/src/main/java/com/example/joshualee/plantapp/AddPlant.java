@@ -141,6 +141,7 @@ public class AddPlant extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "You haven't picked Image",
                         Toast.LENGTH_LONG).show();
+                new_plant.setPicture(null);
             }
         } catch (Exception e) {
             Toast.makeText(this, "Error", Toast.LENGTH_LONG)
