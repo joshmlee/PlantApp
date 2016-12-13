@@ -14,6 +14,8 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class ImageAdapter extends BaseAdapter {
 
     private Context mContext;
@@ -45,6 +47,7 @@ public class ImageAdapter extends BaseAdapter {
             holder = new ViewHolder();
             // if it's not recycled, initialize some attributes
             holder.mainImage = (ImageView) convertView.findViewById(R.id.plantImage);  // new ImageView(mContext);
+            holder.nameText = (TextView) convertView.findViewById(R.id.name);
 //            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
 //            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 //            imageView.setPadding(8, 8, 8, 8);
@@ -53,7 +56,11 @@ public class ImageAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
+        SharedPreference sharedPreference = new SharedPreference();
+        ArrayList<Plant> fav_plants = new ArrayList<Plant>();
+        fav_plants = sharedPreference.getFavorites(mContext);
         holder.mainImage.setImageResource(mThumbIds[position]);
+        holder.nameText.setText("Hola");
         return convertView;
 //        return imageView;
     }
