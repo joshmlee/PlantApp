@@ -27,6 +27,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class EditPlant extends AppCompatActivity {
 
@@ -36,6 +37,11 @@ public class EditPlant extends AppCompatActivity {
     String editPlant_Species;
     String editPlant_addImage;
     SharedPreference sharedPreference = new SharedPreference();
+
+    ArrayList<Plant> fav_plants = new ArrayList<Plant>();
+
+    Bundle extras = getIntent().getExtras();
+    int position = extras.getInt("position");
 
 
     Plant new_plant = new Plant ();
@@ -48,6 +54,11 @@ public class EditPlant extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_add);
+        fav_plants = sharedPreference.getFavorites(this);
+        ImageButton imgView = (ImageButton) findViewById(R.id.plantImage_input);
+        Bitmap plantBitmap = BitmapFactory.decodeFile(fav_plants.get(position).getPicture());
+        imgView.setImageBitmap(resize(plantBitmap, 250, 250));
+
         if(Build.VERSION.SDK_INT== Build.VERSION_CODES.M) {
 //call the request permission here
 
@@ -117,6 +128,7 @@ public class EditPlant extends AppCompatActivity {
 
 //                Toast.makeText(this, "I got to print statement 4",
                 //         Toast.LENGTH_LONG).show();
+
                 ImageButton imgView = (ImageButton) findViewById(R.id.plantImage_input);
                 // Set the Image in ImageView after decoding the String
                 Bitmap bmp = null;
