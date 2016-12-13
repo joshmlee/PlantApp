@@ -7,12 +7,13 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
+    android:background="@color/background"
     tools:context="com.example.joshualee.plantapp.PlantProfile">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Eden"
+        android:text=""
         android:id="@+id/textViewEden"
         android:background="#37907e"
         android:layout_alignBottom="@+id/Homebutton"
@@ -39,7 +40,11 @@
         android:id="@+id/WellnessButton"
         android:layout_above="@+id/FactsButton"
         android:layout_centerHorizontal="true"
-        android:clickable="true" />
+        android:clickable="true"/>
+
+    <!--android:background="@color/background"-->
+    <!--android:textColor="@color/text"/>-->
+
 
     <ImageView
         android:layout_width="283dp"
@@ -54,6 +59,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/PlantName"
         android:layout_below="@+id/imageViewPlant"
+        android:textColor="@color/text"
         android:layout_centerHorizontal="true" />
 
     <CheckBox
@@ -93,7 +99,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_toStartOf="@+id/imageViewPlant"
-        android:layout_alignBottom="@+id/imageView2"
         android:visibility="invisible" />
 
     <Button
@@ -104,7 +109,6 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/imageViewPlant"
-        android:layout_alignBottom="@+id/imageView"
         android:visibility="invisible" />
 
     <TextView

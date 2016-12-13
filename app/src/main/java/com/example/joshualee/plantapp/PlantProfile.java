@@ -1,10 +1,18 @@
 package com.example.joshualee.plantapp;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+
 
 public class PlantProfile extends AppCompatActivity {
 
@@ -16,6 +24,24 @@ public class PlantProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_profile);
+
+        Bundle extras = getIntent().getExtras();
+        int position = extras.getInt("position");
+
+
+        SharedPreference sharedPreference = new SharedPreference();
+        ArrayList<Plant> fav_plants = new ArrayList<Plant>();
+        fav_plants = sharedPreference.getFavorites(this);
+//        Log.v("plant name", fav_plants.get(position).getName());
+
+        ImageView plantImage = (ImageView) findViewById(R.id.imageViewPlant);
+        Bitmap plantBitmap = BitmapFactory.decodeFile(fav_plants.get(position).getPicture());
+        plantImage.setImageBitmap(resize(plantBitmap, 250, 250));
+
+        TextView name = (TextView) findViewById(R.id.PlantName);
+        name.setText(fav_plants.get(position).getName());
+
+
 
         plantWellness = (Button) findViewById(R.id.WellnessButton);
         plantWellness.setOnClickListener(new View.OnClickListener() {
@@ -52,5 +78,26 @@ public class PlantProfile extends AppCompatActivity {
                 startActivity(intent4);
             }
         });
+    }
+
+    private static Bitmap resize(Bitmap image, int maxWidth, int maxHeight) {
+        if (maxHeight > 0 && maxWidth > 0) {
+            int width = image.getWidth();
+            int height = image.getHeight();
+            float ratioBitmap = (float) width / (float) height;
+            float ratioMax = (float) maxWidth / (float) maxHeight;
+
+            int finalWidth = maxWidth;
+            int finalHeight = maxHeight;
+            if (ratioMax > 1) {
+                finalWidth = (int) ((float)maxHeight * ratioBitmap);
+            } else {
+                finalHeight = (int) ((float)maxWidth / ratioBitmap);
+            }
+            image = Bitmap.createScaledBitmap(image, finalWidth, finalHeight, true);
+            return image;
+        } else {
+            return image;
+        }
     }
 }
