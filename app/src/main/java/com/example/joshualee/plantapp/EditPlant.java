@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.ParcelFileDescriptor;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -69,6 +70,16 @@ public class EditPlant extends AppCompatActivity {
 
         nickname.setText(fav_plants.get(position).getName());
         species.setText(fav_plants.get(position).getSciName());
+
+
+        ImageView homeButton = (ImageView) findViewById(R.id.imageView5);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent intent3 = new Intent(EditPlant.this, MainActivity.class);
+                startActivity(intent3);
+            }
+        });
 
 
 
