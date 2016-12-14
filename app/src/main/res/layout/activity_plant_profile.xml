@@ -52,7 +52,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:id="@+id/Editbutton"
-                android:src="@android:drawable/ic_menu_edit"
+                android:src="@drawable/pencil"
                 />
 
         </LinearLayout>
@@ -94,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:text="Water Plant in __ days"
+            android:text="Water plant in 5 days"
             android:id="@+id/WaterPlant"
             android:textColor="@color/text"
             android:clickable="false"
