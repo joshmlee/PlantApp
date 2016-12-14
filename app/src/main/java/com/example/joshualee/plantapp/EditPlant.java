@@ -37,14 +37,13 @@ public class EditPlant extends AppCompatActivity {
     String editPlant_Species;
     String editPlant_addImage;
     SharedPreference sharedPreference = new SharedPreference();
+    int position;
 
     ArrayList<Plant> fav_plants = new ArrayList<Plant>();
 
-    Bundle extras = getIntent().getExtras();
-    int position = extras.getInt("position");
 
 
-    Plant new_plant = new Plant ();
+
 
 
     private static int RESULT_LOAD_IMG = 1;
@@ -52,12 +51,26 @@ public class EditPlant extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_add);
+        Bundle extras = getIntent().getExtras();
+        position = extras.getInt("position");
+
+
         fav_plants = sharedPreference.getFavorites(this);
+
         ImageButton imgView = (ImageButton) findViewById(R.id.plantImage_input);
         Bitmap plantBitmap = BitmapFactory.decodeFile(fav_plants.get(position).getPicture());
         imgView.setImageBitmap(resize(plantBitmap, 250, 250));
+
+        EditText nickname = (EditText) findViewById(R.id.plantName_input);
+        EditText species = (EditText) findViewById(R.id.plantSpecies_input);
+
+        nickname.setText(fav_plants.get(position).getName());
+        species.setText(fav_plants.get(position).getSciName());
+
+
 
         if(Build.VERSION.SDK_INT== Build.VERSION_CODES.M) {
 //call the request permission here
@@ -145,7 +158,7 @@ public class EditPlant extends AppCompatActivity {
 
                // editPlant_addImage = encodeToBase64(bmp, Bitmap.CompressFormat.JPEG, 20);
 
-                new_plant.setPicture(picturePath);
+                fav_plants.get(position).setPicture(picturePath);
 //                Toast.makeText(this, picturePath,
 //                     Toast.LENGTH_LONG).show();
                 // new_plant.setPicture("WhateverThisWouldBe");
@@ -195,14 +208,15 @@ public class EditPlant extends AppCompatActivity {
         editPlant_Nickname = (String) nickname.getText().toString();
         editPlant_Species = (String) species.getText().toString();
 
-        new_plant.setName(editPlant_Nickname);
-        new_plant.setSciName(editPlant_Species);
+        fav_plants.get(position).setName(editPlant_Nickname);
+        fav_plants.get(position).setSciName(editPlant_Species);
 
-        // SharedPreferences clearSHP = myContext.getSharedPreferences("PRODUCT_APP", 0);
+        SharedPreferences clearSHP = myContext.getSharedPreferences("PRODUCT_APP", 0);
 
-        //clearSHP.edit().clear().commit();
+       clearSHP.edit().clear().commit();
+       sharedPreference.saveFavorites(myContext, fav_plants);
 
-        sharedPreference.addFavorite(this, new_plant);
+        //sharedPreference.addFavorite(this, new_plant);
 //        Gson gson = new Gson();
         // String json = gson.toJson(new_plant);
 
