@@ -8,29 +8,43 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     tools:context="com.example.joshualee.plantapp.plantwellness"
-
     android:background="#ffffff">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:id="@+id/textViewEden"
-        android:background="#37907e"
-        android:layout_alignBottom="@+id/Homebutton"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="#ffffff"
-        android:textSize="35dp"
-        android:textAlignment="center" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView4"
-        android:src="@drawable/Eden"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/linLayout"
+        android:background="@color/background"
+        android:weightSum="20">
+
+        <LinearLayout
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:id="@+id/linLayout2"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/header"
+            android:weightSum="10">
+
+            <TextView
+                android:text="Eden"
+                android:textSize="30sp"
+                android:textAllCaps="true"
+                android:paddingTop="12dp"
+                android:layout_width="0dp"
+                android:layout_weight="10"
+                android:layout_height="match_parent"
+                android:textColor="@color/background"
+                android:id="@+id/textView2"
+                android:background="@color/header"
+                android:gravity="center_horizontal"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 </RelativeLayout>
