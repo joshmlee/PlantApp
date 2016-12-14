@@ -34,11 +34,13 @@
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:layout_height="match_parent"
-                android:src="@drawable/plus_icon"
+                android:src="@drawable/homebutton"
                 android:background="@color/header"
                 android:id="@+id/plusImage"
                 android:layout_above="@+id/textView2"
-                android:layout_alignParentTop="true"/>
+                android:layout_alignParentTop="true"
+                android:clickable="false"
+                android:baselineAlignBottom="false" />
 
             <TextView
                 android:text="Eden"

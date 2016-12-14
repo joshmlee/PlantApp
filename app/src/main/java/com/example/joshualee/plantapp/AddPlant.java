@@ -48,6 +48,18 @@ public class AddPlant extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_add);
+
+
+        ImageView homeButton = (ImageView) findViewById(R.id.imageView5);
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent3 = new Intent(AddPlant.this, MainActivity.class);
+                startActivity(intent3);
+            }
+        });
+
+
         if(Build.VERSION.SDK_INT== Build.VERSION_CODES.M) {
 //call the request permission here
 
