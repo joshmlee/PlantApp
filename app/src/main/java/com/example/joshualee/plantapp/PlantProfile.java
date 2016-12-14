@@ -62,9 +62,9 @@ public class PlantProfile extends AppCompatActivity {
         plantFacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(i);
-//                Intent intent2 = new Intent(PlantProfile.this, plantfacts.class);
-//                startActivity(intent2);
+                //startActivity(i);
+            Intent intent2 = new Intent(PlantProfile.this, plantfacts.class);
+              startActivity(intent2);
             }
         });
 
@@ -81,9 +81,8 @@ public class PlantProfile extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // startActivity(i);
-                Intent intent3 = new Intent(PlantProfile.this, MainActivity.class);
-                startActivity(intent3);
+                startActivity(i);
+
             }
         });
     }
