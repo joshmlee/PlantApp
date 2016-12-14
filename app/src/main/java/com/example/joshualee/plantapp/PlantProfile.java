@@ -18,8 +18,8 @@ public class PlantProfile extends AppCompatActivity {
 
     private Button plantWellness;
     private Button plantFacts;
-    private Button edit;
-    private Button home;
+    private ImageView edit;
+    private ImageView home;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +27,9 @@ public class PlantProfile extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         int position = extras.getInt("position");
+
+        final Intent i = new Intent(PlantProfile.this, EditPlant.class);
+        i.putExtra("position", position);
 
 
         SharedPreference sharedPreference = new SharedPreference();
@@ -40,6 +43,9 @@ public class PlantProfile extends AppCompatActivity {
 
         TextView name = (TextView) findViewById(R.id.PlantName);
         name.setText(fav_plants.get(position).getName());
+
+        TextView species = (TextView) findViewById(R.id.PlantSpecies);
+        species.setText(fav_plants.get(position).getSciName());
 
 
 
@@ -56,12 +62,13 @@ public class PlantProfile extends AppCompatActivity {
         plantFacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2 = new Intent(PlantProfile.this, plantfacts.class);
-                startActivity(intent2);
+                startActivity(i);
+//                Intent intent2 = new Intent(PlantProfile.this, plantfacts.class);
+//                startActivity(intent2);
             }
         });
 
-        home = (Button) findViewById(R.id.Homebutton);
+        home = (ImageView) findViewById(R.id.Homebutton);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,12 +77,13 @@ public class PlantProfile extends AppCompatActivity {
             }
         });
 
-        edit = (Button) findViewById(R.id.EditButton);
+        edit = (ImageView) findViewById(R.id.Editbutton);
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent4 = new Intent(PlantProfile.this, EditPlant.class);
-                startActivity(intent4);
+               // startActivity(i);
+                Intent intent3 = new Intent(PlantProfile.this, MainActivity.class);
+                startActivity(intent3);
             }
         });
     }
