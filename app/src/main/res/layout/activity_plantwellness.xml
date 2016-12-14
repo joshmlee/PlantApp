@@ -44,6 +44,16 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_weight="10"
+            android:layout_height="0dp"
+            android:src="@drawable/imagewellnesstext"
+            android:background="@color/background"
+            android:id="@+id/plusImage"
+            android:layout_above="@+id/textView2"
+            android:layout_alignParentTop="true" />
+
     </LinearLayout>
 
 
